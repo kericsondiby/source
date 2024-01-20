@@ -1,0 +1,10 @@
+.set-date-range{
+    background-color: red !important;
+    color: white;
+    border-radius: 4px !important;
+    width: 100% !important;
+}
+
+.remove-active{
+    background-color: #fff !important;
+}
