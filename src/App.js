@@ -5,12 +5,19 @@ import { TempusDominus } from '@eonasdan/tempus-dominus';
 import { useEffect, useRef, useState } from 'react';
 import moment from 'moment';
 import "./style.css"
+// import "./tooltip.css"
 import $ from "jquery"
 import DatatableTest from './DatatableTest';
 
 
 import data from './datatable/data';
 import Table from './DatatableTest';
+import VisNetwork from './VisNetwork';
+// import VisGraphNetwork from './VisGraphNetwork';
+
+
+
+
 
 function App() {
 	const datetime = useRef()
@@ -27,122 +34,122 @@ function App() {
 		return date;
 	}
 
-	useEffect(() => {
-		let datepicker = new TempusDominus(document.getElementById('datetimepicker1'), {
-			// display: {
-			// 	icons: {
-			// 		type: 'icons',
-			// 		time: 'fa-solid fa-clock',
-			// 		date: 'fa-solid fa-calendar',
-			// 		up: 'fa-solid fa-arrow-up',
-			// 		down: 'fa-solid fa-arrow-down',
-			// 		previous: 'fa-solid fa-chevron-left',
-			// 		next: 'fa-solid fa-chevron-right',
-			// 		today: 'fa-solid fa-calendar-check',
-			// 		clear: 'fa-solid fa-trash',
-			// 		close: 'fa-solid fa-xmark'
-			// 	},
-			// 	sideBySide: false,
-			// 	calendarWeeks: false,
-			// 	viewMode: 'calendar',
-			// 	toolbarPlacement: 'bottom',
-			// 	keepOpen: false,
-			// 	buttons: {
-			// 		today: false,
-			// 		clear: false,
-			// 		close: false
-			// 	},
-			// 	components: {
-			// 		calendar: true,
-			// 		date: true,
-			// 		month: true,
-			// 		year: true,
-			// 		decades: true,
-			// 		clock: true,
-			// 		hours: true,
-			// 		minutes: true,
-			// 		seconds: false,
-			// 		//deprecated use localization.hourCycle = 'h24' instead
-			// 		useTwentyfourHour: undefined
-			// 	},
-			// 	inline: true,
-			// 	// theme: 'auto'
-			// }
-			display: {
-				icons: {
-					type: 'icons',
-					time: 'fa-solid fa-clock',
-					date: 'fa-solid fa-calendar',
-					up: 'fa-solid fa-arrow-up',
-					down: 'fa-solid fa-arrow-down',
-					previous: 'fa-solid fa-chevron-left',
-					next: 'fa-solid fa-chevron-right',
-					// today: 'fa-solid fa-calendar-check',
-					clear: 'fa-solid fa-trash',
-					close: 'fa-solid fa-xmark'
-				},
-				inline: true,
-				theme: "light",
+	// useEffect(() => {
+	// 	let datepicker = new TempusDominus(document.getElementById('datetimepicker1'), {
+	// 		// display: {
+	// 		// 	icons: {
+	// 		// 		type: 'icons',
+	// 		// 		time: 'fa-solid fa-clock',
+	// 		// 		date: 'fa-solid fa-calendar',
+	// 		// 		up: 'fa-solid fa-arrow-up',
+	// 		// 		down: 'fa-solid fa-arrow-down',
+	// 		// 		previous: 'fa-solid fa-chevron-left',
+	// 		// 		next: 'fa-solid fa-chevron-right',
+	// 		// 		today: 'fa-solid fa-calendar-check',
+	// 		// 		clear: 'fa-solid fa-trash',
+	// 		// 		close: 'fa-solid fa-xmark'
+	// 		// 	},
+	// 		// 	sideBySide: false,
+	// 		// 	calendarWeeks: false,
+	// 		// 	viewMode: 'calendar',
+	// 		// 	toolbarPlacement: 'bottom',
+	// 		// 	keepOpen: false,
+	// 		// 	buttons: {
+	// 		// 		today: false,
+	// 		// 		clear: false,
+	// 		// 		close: false
+	// 		// 	},
+	// 		// 	components: {
+	// 		// 		calendar: true,
+	// 		// 		date: true,
+	// 		// 		month: true,
+	// 		// 		year: true,
+	// 		// 		decades: true,
+	// 		// 		clock: true,
+	// 		// 		hours: true,
+	// 		// 		minutes: true,
+	// 		// 		seconds: false,
+	// 		// 		//deprecated use localization.hourCycle = 'h24' instead
+	// 		// 		useTwentyfourHour: undefined
+	// 		// 	},
+	// 		// 	inline: true,
+	// 		// 	// theme: 'auto'
+	// 		// }
+	// 		display: {
+	// 			icons: {
+	// 				type: 'icons',
+	// 				time: 'fa-solid fa-clock',
+	// 				date: 'fa-solid fa-calendar',
+	// 				up: 'fa-solid fa-arrow-up',
+	// 				down: 'fa-solid fa-arrow-down',
+	// 				previous: 'fa-solid fa-chevron-left',
+	// 				next: 'fa-solid fa-chevron-right',
+	// 				// today: 'fa-solid fa-calendar-check',
+	// 				clear: 'fa-solid fa-trash',
+	// 				close: 'fa-solid fa-xmark'
+	// 			},
+	// 			inline: true,
+	// 			theme: "light",
 
 
-			},
-			restrictions: {
-				minDate: new Date("01/01/2023"),
-				maxDate: new Date(),
-				disabledDates: [],
-				enabledDates: [],
-				daysOfWeekDisabled: [],
-				disabledTimeIntervals: [],
-				disabledHours: [],
-				enabledHours: []
-			},
-			localization: {
-				today: 'Go to today',
-				clear: 'Clear selection',
-				close: 'Close the picker',
-				selectMonth: 'Select Month',
-				previousMonth: 'Previous Month',
-				nextMonth: 'Next Month',
-				selectYear: 'Select Year',
-				previousYear: 'Previous Year',
-				nextYear: 'Next Year',
-				selectDecade: 'Select Decade',
-				previousDecade: 'Previous Decade',
-				nextDecade: 'Next Decade',
-				previousCentury: 'Previous Century',
-				nextCentury: 'Next Century',
-				pickHour: 'Pick Hour',
-				incrementHour: 'Increment Hour',
-				decrementHour: 'Decrement Hour',
-				pickMinute: 'Pick Minute',
-				incrementMinute: 'Increment Minute',
-				decrementMinute: 'Decrement Minute',
-				pickSecond: 'Pick Second',
-				incrementSecond: 'Increment Second',
-				decrementSecond: 'Decrement Second',
-				toggleMeridiem: 'Toggle Meridiem',
-				selectTime: 'Select Time',
-				selectDate: 'Select Date',
-				dayViewHeaderFormat: { month: 'long', year: 'numeric' },
-				locale: 'default',
-				startOfTheWeek: 1,
-				hourCycle: "h24",
-				dateFormats: {
-					LTS: 'h:mm:ss T',
-					LT: 'h:mm T',
-					L: 'MM/dd/yyyy',
-					LL: 'MMMM d, yyyy',
-					LLL: 'MMMM d, yyyy h:mm T',
-					LLLL: 'dddd, MMMM d, yyyy h:mm T'
-				},
-				ordinal: (n) => n,
-				format: 'LL'
-			}
+	// 		},
+	// 		restrictions: {
+	// 			minDate: new Date("01/01/2023"),
+	// 			maxDate: new Date(),
+	// 			disabledDates: [],
+	// 			enabledDates: [],
+	// 			daysOfWeekDisabled: [],
+	// 			disabledTimeIntervals: [],
+	// 			disabledHours: [],
+	// 			enabledHours: []
+	// 		},
+	// 		localization: {
+	// 			today: 'Go to today',
+	// 			clear: 'Clear selection',
+	// 			close: 'Close the picker',
+	// 			selectMonth: 'Select Month',
+	// 			previousMonth: 'Previous Month',
+	// 			nextMonth: 'Next Month',
+	// 			selectYear: 'Select Year',
+	// 			previousYear: 'Previous Year',
+	// 			nextYear: 'Next Year',
+	// 			selectDecade: 'Select Decade',
+	// 			previousDecade: 'Previous Decade',
+	// 			nextDecade: 'Next Decade',
+	// 			previousCentury: 'Previous Century',
+	// 			nextCentury: 'Next Century',
+	// 			pickHour: 'Pick Hour',
+	// 			incrementHour: 'Increment Hour',
+	// 			decrementHour: 'Decrement Hour',
+	// 			pickMinute: 'Pick Minute',
+	// 			incrementMinute: 'Increment Minute',
+	// 			decrementMinute: 'Decrement Minute',
+	// 			pickSecond: 'Pick Second',
+	// 			incrementSecond: 'Increment Second',
+	// 			decrementSecond: 'Decrement Second',
+	// 			toggleMeridiem: 'Toggle Meridiem',
+	// 			selectTime: 'Select Time',
+	// 			selectDate: 'Select Date',
+	// 			dayViewHeaderFormat: { month: 'long', year: 'numeric' },
+	// 			locale: 'default',
+	// 			startOfTheWeek: 1,
+	// 			hourCycle: "h24",
+	// 			dateFormats: {
+	// 				LTS: 'h:mm:ss T',
+	// 				LT: 'h:mm T',
+	// 				L: 'MM/dd/yyyy',
+	// 				LL: 'MMMM d, yyyy',
+	// 				LLL: 'MMMM d, yyyy h:mm T',
+	// 				LLLL: 'dddd, MMMM d, yyyy h:mm T'
+	// 			},
+	// 			ordinal: (n) => n,
+	// 			format: 'LL'
+	// 		}
 
-		});
+	// 	});
 
-		// datepicker.dates.formatInput = function(date) { {return moment(date).format('MM/DD/YYYY') } }
-	}, [])
+	// 	// datepicker.dates.formatInput = function(date) { {return moment(date).format('MM/DD/YYYY') } }
+	// }, [])
 
 	useEffect(() => {
 		document.addEventListener("keydown", (e) => {
@@ -222,17 +229,17 @@ function App() {
 					}
 
 					console.log("DATE_PLAGE: ", dateplage);
-					
+
 					let lastDate = plage[plage.length - 1]
-					
+
 					temp.push(transformDate(e))
-					
+
 					let date1 = new Date(firstDate)
 					let date2 = new Date(lastDate)
 					// const date1 = new Date('7/13/2010');
 					// const date2 = new Date('12/15/2010');
 
-					
+
 					if (date1 > date2) {
 
 						const diffTime = Math.abs(date1 - date2);
@@ -279,23 +286,23 @@ function App() {
 
 
 				} else if (ctrlDown) {
-					
+
 					// setDateRange(plage)
 					let dateplage = []
 
 					dateplage.push(transformDate(e))
 
 					console.log("DATE_PLAGE: ", plage, "Event: ", transformDate(e));
-					
-					let filter_date = plage.find((date)=>date === transformDate(e))
+
+					let filter_date = plage.find((date) => date === transformDate(e))
 
 					if (filter_date !== undefined) {
-						plage = plage.filter((date)=>date !== transformDate(e))
-					}else{
+						plage = plage.filter((date) => date !== transformDate(e))
+					} else {
 						plage.push(transformDate(e))
-						
+
 					}
-					
+
 					document.querySelectorAll(".day:not(.disabled)").forEach((el) => {
 
 						let dateValue = $(el).attr("data-value").split("-")
@@ -303,8 +310,8 @@ function App() {
 						let newDate = dateValue[0] + "-" + dateValue[1] + "-" + dateValue[2]
 						if (plage.includes(newDate)) {
 							$(el).addClass('set-date-range')
-						}else{
-							
+						} else {
+
 							$(el).removeClass('active')
 						}
 
@@ -353,18 +360,46 @@ function App() {
 	// 		e.stopPropagation()
 	// 	})
 	// }, [])
+
+
+	let n = 0;
+	useEffect(() => {
+
+		while (n ** 2 < 145) {
+
+			console.log(n)
+			n += 3
+		}
+	}, [n])
 	return (
 		<>
-			<div id='datetimepicker1' onClick={handleDateClick} style={{ userSelect: "none", marginBottom: "15px" }}>
+			{/* <div id='datetimepicker1' onClick={handleDateClick} style={{ userSelect: "none", marginBottom: "15px" }}>
 
 			</div>
 			{dateRange.map((date, i) => (
 				<p key={i}>{date}</p>
-			))}
+			))} */}
 
 			{/* <DatatableTest /> */}
 			{/* <Table data={data} click={clickhandler} /> */}
-			<Table data={data} />
+			{/* <Table data={data} /> */}
+
+			<VisNetwork />
+
+			{/* <VisGraphNetwork /> */}
+			{/* <p></p>
+			{
+				
+				2**3
+			}
+
+			<div style={{
+				width:"100px",
+				height:"75px",
+				backgroundColor: "red",
+				border:"1px solid black",
+				transform: "translate(20px, 15%)"
+			}}>ggt</div> */}
 		</>
 	);
 }

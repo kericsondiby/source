@@ -4,7 +4,7 @@ import DataTable from "react-data-table-component";
 import FilterComponent from "./FilterComponent";
 import info from "./img/info.svg"
 
-import "./tooltip.css"
+// import "./tooltip.css"
 const Table = ({ data, click }) => {
   const columns = [
     {
